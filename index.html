@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/style.css">
+  <title>YouTube ad debug info → URL</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>YouTube ad debug info → URL</h1>
+    <h2>Just paste the copied debug info from YouTube to get the ad’s video URL!</h2>
+
+
+    <div id="content-zone">
+      <textarea autofocus class="outline flex-child" id="textarea" spellcheck="false" autocapitalize="none"
+        autocomplete="off"></textarea>
+
+      <div>
+        <div id="detected-id" class="button flex-child deactivated error">⚠ Error: JavaScript is disabled ⚠</div>
+
+        <div id="copy-open-duo">
+          <div id="copy-link" class="button flex-child deactivated error">Copy link
+          </div>
+          <a id="open-link" target="_blank" rel="noopener noreferrer" class="button flex-child deactivated error">Open
+            link</a>
+        </div>
+      </div>
+    </div>
+  </div> <!--- #app -->
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+
+
+</html>
