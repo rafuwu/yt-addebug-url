@@ -1,6 +1,9 @@
 import './style.css'
 
 const elements = { 
+          paste : document.querySelector<HTMLDivElement>("#paste-button")!,
+           auto : document.querySelector<HTMLDivElement>("#auto-button")!,
+       textarea : document.querySelector<HTMLTextAreaElement>("#textarea")!,
     detected_id : document.querySelector<HTMLDivElement>("#detected-id")!,
       open_link : document.querySelector<HTMLAnchorElement>("#open-link")!,
       copy_link : document.querySelector<HTMLDivElement>("#copy-link")!,
@@ -39,6 +42,23 @@ update();
 
 document.querySelector<HTMLTextAreaElement>("#textarea")!.addEventListener('input', () => {
     update();
+})
+
+if (window.navigator.clipboard) {
+    document.querySelector<HTMLDivElement>("#paste-auto-duo")!.classList.remove("unsupported");
+}
+
+async function pasteClipboard() {
+    let clipboard_text: string = await window.navigator.clipboard.readText()!;
+    if (clipboard_text) elements.textarea.value = clipboard_text;
+    update();
+}
+
+elements.paste.addEventListener("click", pasteClipboard);
+
+elements.auto.addEventListener("click", async () => {
+    await pasteClipboard();
+    await elements.open_link.click();
 })
 
 document.addEventListener('keydown', (event: KeyboardEvent) => {

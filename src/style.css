@@ -20,6 +20,8 @@
   --color-green-light: #4bcf8d;
   --color-orange-light: #eb8f61;
   --color-red-light: #f36d6d;
+  --color-green-dark: #269373;
+  --color-purple-dark: #825ebc;
 
   --button-box-shadow: 0px 0px 5px 0px;
 }
@@ -68,6 +70,7 @@ h2 {
   border-radius: 10px;
   font-family: var(--monospace-font);
   width: 100%;
+  margin-top: 10px;
   margin-bottom: 10px;
   transition: box-shadow 0.1s linear;
 }
@@ -83,15 +86,17 @@ h2 {
   gap: 10px;
 }
 
-#copy-open-duo {
+#copy-open-duo,
+#paste-auto-duo {
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 4px 10px;
 }
 
-#copy-open-duo>* {
+#copy-open-duo>*,
+#paste-auto-duo>* {
   flex-grow: 1;
 }
 
@@ -102,6 +107,22 @@ h2 {
 .flex-child {
   padding: 1rem;
   font-weight: 500;
+}
+
+#paste-button {
+  background-color: var(--color-green-dark);
+}
+
+#paste-button:active {
+  box-shadow: var(--button-box-shadow) var(--color-green-dark);
+}
+
+#auto-button {
+  background-color: var(--color-purple-dark);
+}
+
+#auto-button:active {
+  box-shadow: var(--button-box-shadow) var(--color-purple-dark);
 }
 
 #detected-id {
@@ -131,13 +152,28 @@ h2 {
   box-shadow: var(--button-box-shadow) var(--color-red-light);
 }
 
-#copy-link,
-#open-link {
+#copy-open-duo>* {
   font-size: calc(2rem + 1vw);
+}
+
+/* Ignore (counter) deactivation for the paste-auto duo */
+#paste-auto-duo>*:is(.deactivated) {
+  filter: saturate(1);
+  cursor: pointer;
+}
+
+#paste-auto-duo>* {
+  font-size: calc(1rem + 1vw);
 }
 
 .error {
   cursor: not-allowed !important;
+}
+
+/* Completely hide unsupported elements */
+.unsupported,
+.unsupported>* {
+  display: none;
 }
 
 #detected-id:is(.error) {
