@@ -40,6 +40,9 @@ function update() {
 Object.values(elements).forEach(class_func.remove_error);
 update();
 
+// Simple, no-title version
+if (window.location.search.includes("?s")) document.querySelector<HTMLTextAreaElement>("#titles")!.classList.add("unsupported")
+
 document.querySelector<HTMLTextAreaElement>("#textarea")!.addEventListener('input', () => {
     update();
 })
