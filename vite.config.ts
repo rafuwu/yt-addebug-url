@@ -5,4 +5,10 @@ export default defineConfig({
 	plugins: [ viteSingleFile({ 
         removeViteModuleLoader: true,
     }) ],
+    build: {
+		minify: false,
+        assetsInlineLimit: 0,
+        cssMinify: false,
+	},
+    clearScreen: false,
 });
