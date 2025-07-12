@@ -4,6 +4,7 @@ import { viteSingleFile } from "vite-plugin-singlefile";
 // Custom plugins
 import inlineIcon from "./plugins/inline-icon";
 import includeLicense from "./plugins/include-license";
+import includeRepoInfo from "./plugins/include-repo-info";
 
 export default defineConfig({
 	plugins: [
@@ -12,6 +13,7 @@ export default defineConfig({
         }),
         inlineIcon(),
         includeLicense("build"),
+        includeRepoInfo("build"),
     ],
     build: {
 		minify: false,
