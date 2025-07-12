@@ -1,5 +1,9 @@
 {
-  "name": "debug2url",
+  "name": "yt-addebug-url",
+  "author": {
+    "name": "rafuwu"
+  },
+  "repository": "github:rafuwu/yt-addebug-url",
   "private": true,
   "version": "0.0.0",
   "type": "module",
